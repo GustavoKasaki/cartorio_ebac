@@ -164,13 +164,6 @@ int remover() //Menu 3: Função para remover usuários
 	
 }
 
-int quit() //Encerrar o programa
-{
-	printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n"); //lembrar de colocar ";" ao fim de cada comando, para evitar erros
-	printf("Fechando programa...\n\nAperte qualquer tecla para continuar\n\n");
-	exit(1);
-}
-
 
 int main() //Menu Principal
 {
@@ -212,7 +205,9 @@ int main() //Menu Principal
 			break;
 			
 			case 4: //Encerra o programa
-			quit();
+			printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n"); //lembrar de colocar ";" ao fim de cada comando, para evitar erros
+			printf("Fechando programa...\n\nAperte qualquer tecla para continuar\n\n");
+			return 0;
 			break;
 			
 			default:
