@@ -169,50 +169,70 @@ int main() //Menu Principal
 {
 	int opcao=0; //definindo a variável opção
 	int lasso=1; // definindo a variável lasso
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	for(lasso=1;lasso=1;) //Laço de repetição (Qualquer input mantém o usuário no mesmo menu, a nâo ser os inputs das opções)
+	printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n"); //lembrar de colocar ";" ao fim de cada comando, para evitar erros
+	printf("Login de Administrador:\n");
+	printf("\tDigite sua senha: ");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada,"admin"); //strcmp = comparação de strings: compara valores
+	
+	system("cls");
+	
+	if(comparacao == 0)
 	{
-		system("cls"); //limpar a tela
+		for(lasso=1;lasso=1;) //Laço de repetição (Qualquer input mantém o usuário no mesmo menu, a nâo ser os inputs das opções)
+			{
+			system("cls"); //limpar a tela
+			
+			setlocale(LC_ALL, "portuguese"); //define o idioma e acentuação (LC_ALL = linguagens da categoria do texto é "português")
 		
-		setlocale(LC_ALL, "portuguese"); //define o idioma e acentuação (LC_ALL = linguagens da categoria do texto é "português")
-	
-		//início do menu
-		printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n"); //lembrar de colocar ";" ao fim de cada comando, para evitar erros
-		printf("Escolha a opção desejada abaixo:\n");
-		printf("\t1. Registrar usuário\n"); //a definição "\t" insere uma indentação
-		printf("\t2. Consultar usuário\n");
-		printf("\t3. Remover usuário\n"); //não é necessário criar varias linhas, pode-se utilizar as definições "\n" e "\t" conforme demonstrado abaixo
-		printf("\t4. Fechar programa\n\n");		
-		printf("Opção: ");
-	
-		//armazenando a escolha do usuário
-		scanf("%d",&opcao); //"scanf" solicita input do usuário. "%d" armazena a informação na variável definida no início do programa
-	
-		system("cls"); //limpar a tela
-	
-		switch(opcao)
-		{
-			case 1: //Redireciona ao Menu 1
-			registro();
-			break;
-			
-			case 2: //Redireciona ao Menu 2
-			consulta();
-			break;
-			
-			case 3: //Redireciona ao Menu 3
-			remover();
-			break;
-			
-			case 4: //Encerra o programa
+			//início do menu
 			printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n"); //lembrar de colocar ";" ao fim de cada comando, para evitar erros
-			printf("Fechando programa...\n\nAperte qualquer tecla para continuar\n\n");
-			return 0;
-			break;
+			printf("Escolha a opção desejada abaixo:\n");
+			printf("\t1. Registrar usuário\n"); //a definição "\t" insere uma indentação
+			printf("\t2. Consultar usuário\n");
+			printf("\t3. Remover usuário\n"); //não é necessário criar varias linhas, pode-se utilizar as definições "\n" e "\t" conforme demonstrado abaixo
+			printf("\t4. Fechar programa\n\n");		
+			printf("Opção: ");
+		
+			//armazenando a escolha do usuário
+			scanf("%d",&opcao); //"scanf" solicita input do usuário. "%d" armazena a informação na variável definida no início do programa
+		
+			system("cls"); //limpar a tela
+		
+			switch(opcao)
+			{
+				case 1: //Redireciona ao Menu 1
+				registro();
+				break;
 			
-			default:
-			printf("Opção inválida! Tente novamente.\n\n");
-			system("Pause");
-		}
+				case 2: //Redireciona ao Menu 2
+				consulta();
+				break;
+			
+				case 3: //Redireciona ao Menu 3
+				remover();
+				break;
+			
+				case 4: //Encerra o programa
+				printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n"); //lembrar de colocar ";" ao fim de cada comando, para evitar erros
+				printf("Fechando programa...\n\nAperte qualquer tecla para continuar\n\n");
+				return 0;
+				break;
+			
+				default:
+				printf("Opção inválida! Tente novamente.\n\n");
+				system("Pause");
+			}
+		}	
 	}
+	
+	else
+		printf("==================================\n======== Cartório da EBAC ========\n==================================\n\n");
+		printf("Login de Administrador:\n\n");
+		printf("Senha Incorreta! Tente novamente.\n\n");
+		system("pause");
 }
